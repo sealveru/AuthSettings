@@ -1,0 +1,76 @@
+﻿{
+  "client_id": "",
+  "name": "",
+  "description": "",
+  "client_secret": "",
+  "logo_uri": "",
+  "callbacks": [
+    ""
+  ],
+  "oidc_backchannel_logout": {
+    "backchannel_logout_urls": [
+      ""
+    ]
+  },
+  "allowed_origins": [
+    ""
+  ],
+  "web_origins": [
+    ""
+  ],
+  "grant_types": [
+    ""
+  ],
+  "client_aliases": [
+    ""
+  ],
+  "allowed_clients": [
+    ""
+  ],
+  "allowed_logout_urls": [
+    ""
+  ],
+  "jwt_configuration": {
+    "lifetime_in_seconds": 0,
+    "scopes": {},
+    "alg": ""
+  },
+  "encryption_key": {
+    "pub": "",
+    "cert": "",
+    "subject": ""
+  },
+  "sso": false,
+  "cross_origin_auth": false,
+  "cross_origin_loc": "",
+  "sso_disabled": false,
+  "custom_login_page_on": false,
+  "token_endpoint_auth_method": "",
+  "app_type": "",
+  "is_first_party": true,
+  "oidc_conformant": false,
+  "custom_login_page": "",
+  "custom_login_page_preview": "",
+  "form_template": "",
+  "client_metadata": {},
+  "initiate_login_uri": "",
+  "native_social_login": {
+    "apple": {
+      "enabled": false
+    },
+    "facebook": {
+      "enabled": false
+    }
+  },
+  "refresh_token": {
+    "rotation_type": "non-rotating",
+    "expiration_type": "non-expiring",
+    "leeway": 0,
+    "token_lifetime": 0,
+    "infinite_token_lifetime": false,
+    "idle_token_lifetime": 0,
+    "infinite_idle_token_lifetime": false
+  },
+  "organization_usage": "deny",
+  "organization_require_behavior": "no_prompt"
+}
