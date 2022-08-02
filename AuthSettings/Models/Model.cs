@@ -5,10 +5,10 @@ namespace AuthSettings.Models;
 public class Settings
 {
     [JsonPropertyName("client_id")] 
-    public string? ClientId { get; set; }
+    public string ClientId { get; set; }
 
     [JsonPropertyName("name")] 
-    public string? Name { get; set; }
+    public string Name { get; set; }
 
     [JsonPropertyName("description")] 
     public string? Description { get; set; }
