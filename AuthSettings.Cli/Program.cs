@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
 using AuthSettings;
 using AuthSettings.Models;
-using Mapster;
 
 try
 {
@@ -27,6 +26,9 @@ try
 
                 var result = runner.Validate(setting).ToList();
                 result.ForEach(r => Console.WriteLine(r.ToString()));
+
+                if (result.All(e => e.IsValid))
+                    Console.WriteLine("Ok");
             }
 
             break;
@@ -40,7 +42,7 @@ try
             foreach (var app in settings)
             {
                 var result = runner.Validate(app).ToList();
-                if (result.Any())
+                if (result.Any(e => !e.IsValid))
                 {
                     Console.WriteLine($"Application with ClientId {app.ClientId} can not be deployed.");
                     result.ForEach(r => Console.WriteLine(r.ToString()));
