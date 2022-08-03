@@ -7,12 +7,12 @@ namespace AuthSettings;
 
 public interface ISettingsDeployer
 {
-    Task<bool> Deploy(SettingsRequest settings, Options options);
+    Task<bool> Deploy(Settings settings, Options options);
 }
 
 public class SettingsDeployer : ISettingsDeployer
 {
-    public async Task<bool> Deploy(SettingsRequest settings, Options options)
+    public async Task<bool> Deploy(Settings settings, Options options)
     {
         using var client = new HttpClient();
 
@@ -22,7 +22,7 @@ public class SettingsDeployer : ISettingsDeployer
         var request = settings.Adapt<SettingsRequest>();
         var jsonRequest = JsonSerializer.Serialize(request);
         var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
-        var response = await client.PatchAsync($"clients/{options.DeployerClientId}", content);
+        var response = await client.PatchAsync($"clients/{settings.ClientId}", content);
 
         Console.WriteLine(response);
 

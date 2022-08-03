@@ -2,6 +2,6 @@
 using FluentValidation;
 
 namespace AuthSettings.Validators;
-public class DummyValidator : AbstractValidator<SettingsResponse>
+public class DummyValidator : AbstractValidator<Settings>
 {
 }

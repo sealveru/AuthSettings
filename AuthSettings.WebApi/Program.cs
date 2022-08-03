@@ -1,4 +1,5 @@
 using AuthSettings;
+using AuthSettings.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFileReader, FileReader>();
 builder.Services.AddScoped<IValidationRunner, ValidationRunner>();
+builder.Services.AddScoped<ISettingsDeployer, SettingsDeployer>();
+
+builder.Services.Configure<Options>(builder.Configuration.GetSection("Auth0"));
+
 
 var app = builder.Build();
 

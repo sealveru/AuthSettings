@@ -3,7 +3,7 @@
 namespace AuthSettings.Models;
 
 
-public class SettingsResponse : BaseSettings
+public class Settings : BaseSettings
 {
     [JsonPropertyName("client_id")] 
     public string ClientId { get; set; }

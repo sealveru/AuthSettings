@@ -46,10 +46,8 @@ try
                     result.ForEach(r => Console.WriteLine(r.ToString()));
                     continue;
                 }
-                
-                var target = settings
-                    .First(s => s.ClientId == app.ClientId)
-                    .Adapt<SettingsRequest>();
+
+                var target = settings.First(s => s.ClientId == app.ClientId);
 
                 await deployer.Deploy(target, options!);
             }

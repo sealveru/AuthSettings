@@ -6,7 +6,7 @@ namespace AuthSettings;
 
 public interface IFileReader
 {
-    public List<SettingsResponse> ReadAllFiles();
+    public List<Settings> ReadAllFiles();
 }
 
 
@@ -14,7 +14,7 @@ public class FileReader : IFileReader
 {
     private const string FolderName = "Settings";
     
-    public List<SettingsResponse> ReadAllFiles()
+    public List<Settings> ReadAllFiles()
     {
         var basePath = "";
         if (Debugger.IsAttached)
@@ -26,7 +26,7 @@ public class FileReader : IFileReader
 
         return files
             .Select(File.ReadAllText)
-            .Select(fileContent => JsonSerializer.Deserialize<SettingsResponse>(fileContent))
+            .Select(fileContent => JsonSerializer.Deserialize<Settings>(fileContent))
             .ToList()!;
     }
 }

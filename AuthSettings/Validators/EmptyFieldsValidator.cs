@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace AuthSettings.Validators;
 
-public class EmptyFieldsValidator : AbstractValidator<SettingsResponse>
+public class EmptyFieldsValidator : AbstractValidator<Settings>
 {
     public EmptyFieldsValidator()
     {

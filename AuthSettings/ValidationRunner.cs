@@ -7,33 +7,38 @@ namespace AuthSettings;
 
 public interface IValidationRunner
 {
-    IEnumerable<ValidationResult> Validate(SettingsResponse? settings);
+    IEnumerable<ValidationResult> Validate(Settings? settings);
 }
 
 public class ValidationRunner : IValidationRunner
 {
-    public IEnumerable<ValidationResult> Validate(SettingsResponse? settings)
+    public IEnumerable<ValidationResult> Validate(Settings? settings)
     {
         if (settings is null)
             return GetNotFoundResponse();
 
         var validators = GetValidators();
 
-        return validators
+        var result = validators
             .Select(validator => validator.Validate(settings))
             .Where(result => !result.IsValid)
             .ToList();
+
+        if (result.Any())
+            return result;
+
+        return new List<ValidationResult> {new()};
     }
 
-    private static IEnumerable<AbstractValidator<SettingsResponse>> GetValidators()
+    private static IEnumerable<AbstractValidator<Settings>> GetValidators()
     {
-        var validatorType = typeof(AbstractValidator<SettingsResponse>);
+        var validatorType = typeof(AbstractValidator<Settings>);
 
         return Assembly
             .GetAssembly(typeof(ValidationRunner))!
             .GetTypes()
             .Where(type => validatorType.IsAssignableFrom(type))
-            .Select(type => (AbstractValidator<SettingsResponse>) Activator.CreateInstance(type)!)
+            .Select(type => (AbstractValidator<Settings>) Activator.CreateInstance(type)!)
             .ToList();
     }
 
