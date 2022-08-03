@@ -25,7 +25,7 @@ public class ApplicationsController : ControllerBase
     }
     
     [HttpGet("{id}/validations")]
-    public IEnumerable<ValidationResult>? GetValidations(string id)
+    public IEnumerable<ValidationResult> GetValidations(string id)
     {
         var setting = _reader.ReadAllFiles().FirstOrDefault(s => s.ClientId == id);
         return _runner.Validate(setting);

@@ -8,13 +8,11 @@
 
     <ItemGroup>
       <PackageReference Include="FluentValidation" Version="11.1.0" />
+      <PackageReference Include="Mapster" Version="7.3.0" />
     </ItemGroup>
 
     <ItemGroup>
       <None Update="Settings\Roofstock.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="Settings\RoofstockOne.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
