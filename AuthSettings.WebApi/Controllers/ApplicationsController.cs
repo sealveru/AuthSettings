@@ -37,7 +37,7 @@ public class ApplicationsController : ControllerBase
         return _runner.Validate(setting);
     }
     
-    [HttpGet("{id}/deploy")]
+    [HttpPost("{id}/deploy")]
     public async Task<bool> Deploy(string id)
     {
         var setting = _reader

@@ -1,0 +1,32 @@
+﻿{
+  "client_id": "qmqG2I6K6NJWoRZorE6gKDrfgqGHQKd2",
+  "name": "Roofstock One",
+  "description": "",
+  "logo_uri": "",
+  "callbacks": [
+  ],
+  "allowed_origins": [
+  ],
+  "web_origins": [
+  ],
+  "grant_types": [
+  ],
+  "client_aliases": [
+  ],
+  "allowed_clients": [
+  ],
+  "allowed_logout_urls": [
+  ],
+  "oidc_conformant": false,
+  "custom_login_page": "",
+  "custom_login_page_preview": "",
+  "form_template": "",
+  "initiate_login_uri": "",
+  "organization_usage": "deny",
+  "organization_require_behavior": "no_prompt",
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 36000,
+    "secret_encoded": false
+  }
+}
